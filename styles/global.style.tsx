@@ -20,9 +20,12 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: #262626;
+    line-height: 1.5;
     color: #fafafa;
     font-family: 'Noto Sans', sans-serif !important;
   }
 
-  // anything else you would like to include
+  body {
+    overflow-y: hidden
+  }
 `;

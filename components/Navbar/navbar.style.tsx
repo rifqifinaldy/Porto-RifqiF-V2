@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const RFNavbar = styled.nav`
   background-color: rgba(34, 34, 34, 0.1);
   color: ${({ theme }) => theme.text.primary};
-  height: 50px;
+  height: 70px;
 `;
 
 export const NavWrapper = styled.div`
@@ -11,6 +11,7 @@ export const NavWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  padding: 0 2em;
 `;
 
 export const NavLogo = styled.div`

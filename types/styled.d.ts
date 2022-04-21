@@ -6,9 +6,13 @@ declare module "styled-components" {
       primary: string;
       secondary: string;
     };
-    text : {
+    text: {
       primary: string;
       secondary: string;
-    }
+    };
+    shadow: {
+      inner_shadow: string;
+      outer_shadow: string;
+    };
   }
 }
