@@ -7,6 +7,7 @@ declare module "styled-components" {
       red: string;
       orange: string;
       purple: string;
+      background: string;
       text: {
         primary: string;
         secondary: string;
@@ -39,7 +40,7 @@ declare module "styled-components" {
   }
 }
 
-export type BaseColors = "blue" | "red" | "orange" | "purple";
+export type BaseColors = "blue" | "red" | "orange" | "purple" | "background";
 export type TextColors = "primary" | "secondary";
 export type FontWeight = "normal" | "light" | "bold" | "extraBold";
 
