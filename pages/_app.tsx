@@ -46,7 +46,7 @@ const MyApp = ({ Component, pageProps, router }: Props) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar open={isOpen} toggle={toggle}/>
-        <Mobile open={isOpen} toggle={toggle}/>
+        {isOpen && <Mobile open={isOpen} toggle={toggle}/>} 
         <AnimatePresence>
           <motion.div
             key={router.route}

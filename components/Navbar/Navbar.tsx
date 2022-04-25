@@ -1,3 +1,4 @@
+import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 import React, { FC } from "react";
 import {
@@ -16,6 +17,12 @@ interface INavbar {
   open: boolean;
   toggle: () => void;
 }
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  return {
+    props: { message: `Next.js is awesome` }, // will be passed to the page component as props
+  };
+};
 
 const Navbar: FC<INavbar> = ({ toggle, open }) => {
   return (
