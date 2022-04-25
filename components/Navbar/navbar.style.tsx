@@ -28,7 +28,6 @@ export const NavLogo = styled.div`
   opacity: ${({ theme }) => theme.opacity.medium};
   width: 50px;
   height: 50px;
-  margin: 0 1em;
 `;
 
 export const MobileIcon = styled(AiOutlineMenu)`

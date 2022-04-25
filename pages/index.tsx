@@ -11,6 +11,9 @@ const ProfileSection = styled.main`
   position: relative;
   padding: 50px 0;
   width: 100%;
+  @media screen and (max-width: 768px) {
+    padding: 40px 0;
+  }
 `;
 
 const Avatar = styled(motion.div)`
@@ -20,6 +23,12 @@ const Avatar = styled(motion.div)`
   border-radius: 50%;
   padding: 15px;
   box-shadow: ${({ theme }) => theme.shadow.inner_shadow};
+  @media screen and (max-width: 768px) {
+    max-width: 360px;
+  }
+  @media screen and (max-width: 574px) {
+    max-width: 260px;
+  }
 `;
 
 const AvatarImg = styled(Image)`
@@ -33,6 +42,12 @@ const ProfileBox = styled.div`
   flex: 0 0 50%;
   max-width: 50%;
   padding: 0 15px;
+  @media screen and (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 0;
+  }
 `;
 
 const Hello = styled.small`
@@ -48,6 +63,9 @@ const ProfileName = styled(motion.h2)`
   font-weight: ${({ theme }) => theme.font.weight.extraBold};
   color: ${({ theme }) => theme.colors.text.primary};
   margin: 0;
+  @media screen and (max-width: 564px) {
+    font-size: 40px;
+  }
 `;
 
 const ProfileRole = styled(motion.h4)`
@@ -69,6 +87,14 @@ const JSText = styled(motion.h6)`
   transform: rotateX(50deg) rotateZ(45deg);
   left: 80%;
   bottom: 10%;
+  @media screen and (max-width: 768px) {
+    top: 0;
+    left: 0;
+  }
+  @media screen and (max-width: 540px) {
+    top: 0;
+    right: 90%;
+  }
 `;
 
 const ReactText = styled(motion.h6)`
@@ -81,6 +107,9 @@ const ReactText = styled(motion.h6)`
   right: 30%;
   margin: 0 auto;
   bottom: 0;
+  @media screen and (max-width: 768px) {
+    right: 0;
+  }
 `;
 
 const Home: NextPage = () => {
