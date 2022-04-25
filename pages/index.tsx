@@ -120,22 +120,6 @@ const SlideDown = {
   },
 };
 
-const letter = {
-  hidden: { opacity: 0, y: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    y: 0,
-  },
-  exit: {
-    y: -1000,
-    opacity: 0,
-    transition: {
-      duration: 1,
-    },
-  },
-};
-
 const Home: NextPage = () => {
   return (
     <ProfileSection>
@@ -156,6 +140,7 @@ const Home: NextPage = () => {
                 duration: 2,
                 repeat: Infinity,
                 repeatType: "mirror",
+                ease: [0.455, 0.03, 0.515, 0.955],
               }}
             >
               <AvatarImg

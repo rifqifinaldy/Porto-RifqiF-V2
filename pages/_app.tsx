@@ -6,12 +6,13 @@ import Navbar from "../components/Navbar/Navbar";
 import type { Page } from "../types/page";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/theme.style";
+import { motion, AnimatePresence } from "framer-motion";
 
 // this should give a better typing
 type Props = AppProps & {
   Component: Page;
 };
-const MyApp = ({ Component, pageProps }: Props) => {
+const MyApp = ({ Component, pageProps, router }: Props) => {
   // adjust accordingly if you disabled a layout rendering option
   const getLayout = Component.getLayout ?? ((page) => page);
   const Layout = Component.layout ?? Fragment;
@@ -25,7 +26,29 @@ const MyApp = ({ Component, pageProps }: Props) => {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <Navbar />
-        {getLayout(<Component {...pageProps} />)}
+        <AnimatePresence>
+        <motion.div
+          key={router.route}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          variants={{
+            initial: {
+              opacity: 0,
+            },
+            animate: {
+              opacity: 1,
+              transition: {duration : 0.85},
+            },
+            exit : {
+              opacity: 0,
+              filter : `invert()`
+            }
+          }}
+        >
+          {getLayout(<Component {...pageProps} />)}
+        </motion.div>
+        </AnimatePresence>
       </ThemeProvider>
     </Layout>
   );
