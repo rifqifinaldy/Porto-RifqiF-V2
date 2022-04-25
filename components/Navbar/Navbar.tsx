@@ -1,6 +1,8 @@
 import Link from "next/link";
-import React from "react";
+import React, { FC } from "react";
 import {
+  CloseIcon,
+  MobileIcon,
   NavItem,
   NavLink,
   NavLogo,
@@ -8,25 +10,33 @@ import {
   NavWrapper,
   RFNavbar,
 } from "./navbar.style";
+import { menu } from "./navigation.config";
 
-const Navbar = () => {
+interface INavbar {
+  open: boolean;
+  toggle: () => void;
+}
+
+const Navbar: FC<INavbar> = ({ toggle, open }) => {
   return (
     <RFNavbar>
       <NavWrapper>
         <NavLogo>RF</NavLogo>
         <NavMenu>
-          <NavItem>
-              <Link href="/"><NavLink>Home</NavLink></Link>
-          </NavItem>
-          <NavItem>
-              <Link href="/about"><NavLink>About</NavLink></Link>
-          </NavItem>
-          <NavItem>
-              <Link href="/project"><NavLink>Projects</NavLink></Link>
-          </NavItem>
-          <NavItem>
-              <Link href="/contact"><NavLink>Contact</NavLink></Link>
-          </NavItem>
+          {open ? (
+            <CloseIcon onClick={toggle} />
+          ) : (
+            <MobileIcon onClick={toggle} />
+          )}
+          {menu.map((menu, i) => {
+            return (
+              <NavItem key={i}>
+                <Link href={menu.target}>
+                  <NavLink>{menu.title}</NavLink>
+                </Link>
+              </NavItem>
+            );
+          })}
         </NavMenu>
       </NavWrapper>
     </RFNavbar>

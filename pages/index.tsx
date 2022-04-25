@@ -4,8 +4,8 @@ import { Button } from "../components/Button/Button";
 import styled from "styled-components";
 import { Container, Grid } from "../components/Layouts/Layouts";
 import { motion } from "framer-motion";
-import { theme } from "../styles/theme.style";
 import { BlinkingText, SlideUpText } from "../components/Text/text.animation";
+import { BounceUp, SlideDown, SlideUp } from "../styles/global.animation";
 
 const ProfileSection = styled.main`
   position: relative;
@@ -78,47 +78,10 @@ const ReactText = styled(motion.h6)`
   margin: 0;
   text-transform: capitalize;
   position: absolute;
-  right : 30%;
+  right: 30%;
   margin: 0 auto;
   bottom: 0;
 `;
-
-const BounceUp = {
-  initial: { y: 0 },
-  animate: { y: -25 },
-};
-
-// For Animation Purpose
-const SlideUp = {
-  hidden: {
-    color: theme.colors.background,
-    y: 25,
-    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
-  },
-  visible: {
-    color: theme.colors.text.primary,
-    y: 0,
-    transition: {
-      delay: 0.75,
-      ease: [0.455, 0.03, 0.515, 0.955],
-      duration: 0.75,
-    },
-  },
-};
-
-const SlideDown = {
-  hidden: {
-    opacity: 0,
-    y: "-200%",
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 1.2,
-    },
-  },
-};
 
 const Home: NextPage = () => {
   return (
@@ -126,16 +89,19 @@ const Home: NextPage = () => {
       <Container>
         <Grid>
           <JSText>
-            <BlinkingText>React Addict Javascript Enthusiast CSS Maniac</BlinkingText>
+            <BlinkingText>
+              React Addict Javascript Enthusiast CSS Maniac
+            </BlinkingText>
           </JSText>
           <ReactText>
-            <BlinkingText>This App Created Using React, NextJs, Typescript, Contentful, Framer-Motion, Styled-Components, </BlinkingText>
+            <BlinkingText>
+              This App Created Using React, NextJs, Typescript, Contentful,
+              Framer-Motion, Styled-Components
+            </BlinkingText>
           </ReactText>
           <ProfileBox>
             <Avatar
               variants={BounceUp}
-              initial="initial"
-              animate="animate"
               transition={{
                 duration: 2,
                 repeat: Infinity,
@@ -158,27 +124,9 @@ const Home: NextPage = () => {
             <Hello>Salute</Hello>
             <ProfileName>
               <SlideUpText>I'm Rifqi Finaldy</SlideUpText>
-
-              {/* {fullName.split("").map((char, i) => {
-                return (
-                  <motion.span
-                    style={{ display: "inline-block" }}
-                    variants={letter}
-                    transition={{
-                      repeatType: "mirror",
-                      duration: 0.78,
-                    }}
-                    key={char + "-" + i}
-                  >
-                    {char}
-                  </motion.span>
-                );
-              })} */}
             </ProfileName>
-            <ProfileRole variants={SlideUp} initial="hidden" animate="visible">
-              Frontend Developer
-            </ProfileRole>
-            <motion.div variants={SlideDown} initial="hidden" animate="visible">
+            <ProfileRole variants={SlideUp}>Frontend Developer</ProfileRole>
+            <motion.div variants={SlideDown}>
               <Button
                 mt="l"
                 color="purple"

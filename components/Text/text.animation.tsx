@@ -14,9 +14,10 @@ export const SlideUpText = ({ children }: IChildren) => {
           <motion.div
             key={i}
             initial={{ y: "100%" }}
-            animate="visible"
+            animate="animate"
+            exit= "exit"
             variants={{
-              visible: (i: number) => ({
+              animate: (i: number) => ({
                 y: 0,
                 transition: {
                   duration: 0.75,

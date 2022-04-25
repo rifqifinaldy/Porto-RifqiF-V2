@@ -1,9 +1,13 @@
 import styled from "styled-components";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 
 export const RFNavbar = styled.nav`
   background-color: rgba(34, 34, 34, 0.1);
   color: ${({ theme }) => theme.colors.text.primary};
-  height: 70px;
+  height: 80px;
+  width: 100%;
+  z-index: 999;
+  position: relative;
 `;
 
 export const NavWrapper = styled.div`
@@ -21,10 +25,30 @@ export const NavLogo = styled.div`
   border-radius: 40%;
   border: 0.2px solid ${({ theme }) => theme.colors.orange};
   text-align: center;
-  opacity: ${({theme}) => theme.opacity.medium};
+  opacity: ${({ theme }) => theme.opacity.medium};
   width: 50px;
   height: 50px;
   margin: 0 1em;
+`;
+
+export const MobileIcon = styled(AiOutlineMenu)`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    font-size: 1.8em;
+    color: ${({ theme }) => theme.colors.purple};
+    cursor: pointer;
+  }
+`;
+
+export const CloseIcon = styled(AiOutlineClose)`
+  display: none;
+  @media screen and (max-width: 768px) {
+    display: block;
+    font-size: 1.8em;
+    color: ${({ theme }) => theme.colors.purple};
+    cursor: pointer;
+  }
 `;
 
 export const NavMenu = styled.div`
@@ -32,9 +56,12 @@ export const NavMenu = styled.div`
 `;
 
 export const NavItem = styled.div`
-  font-weight: ${({theme}) => theme.font.weight.normal};
+  font-weight: ${({ theme }) => theme.font.weight.normal};
   font-size: 1em;
   margin: 0 1em;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const NavLink = styled.a`
