@@ -15,6 +15,7 @@ import {
   ReactText,
 } from "../styles/homepage.style";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Home: NextPage = () => {
   return (
@@ -60,15 +61,13 @@ const Home: NextPage = () => {
             </ProfileName>
             <ProfileRole variants={SlideUp}>Frontend Developer</ProfileRole>
             <motion.div variants={SlideDown}>
-              <Button
-                mt="l"
-                color="purple"
-                onClick={() => {
-                  console.log("TEST");
-                }}
-              >
-                More About Me
-              </Button>
+              <Link href="/about">
+                <a>
+                  <Button mt="l" color="purple">
+                    More About Me
+                  </Button>
+                </a>
+              </Link>
             </motion.div>
           </ProfileBox>
         </Grid>

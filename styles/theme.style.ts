@@ -7,12 +7,12 @@ export const theme = {
     background : "#0d0106",
     text: {
       primary: "#f8f8f8",
-      secondary: "#c8c8c8",
+      secondary: "#e6e6e8",
     },
   },
   shadow: {
     inner_shadow: "inset 3px 3px 3px #44355b, inset -3px -3px 3px #44355b",
-    outer_shadow: "3px 3px 3px #221e22, -3px -3px 3px #221e22",
+    outer_shadow: "3px 3px 3px #131313, -3px -3px 3px #131313",
   },
   margin: {
     none: "0",
