@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 export const RFNavbar = styled.nav`
   background-color: rgba(34, 34, 34, 0.1);
@@ -19,6 +20,7 @@ export const NavWrapper = styled.div`
 `;
 
 export const NavLogo = styled.div`
+  cursor: pointer;
   font-size: 2em;
   font-weight: ${({ theme }) => theme.font.weight.extraBold};
   color: ${({ theme }) => theme.colors.orange};

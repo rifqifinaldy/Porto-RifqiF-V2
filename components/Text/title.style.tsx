@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const TitleWrapper = styled.div`
@@ -7,7 +8,7 @@ export const TitleWrapper = styled.div`
   margin-bottom : 60px;
 `;
 
-export const Title = styled.h2`
+export const Title = styled(motion.h2)`
   text-transform: uppercase;
   font-weight: ${({ theme }) => theme.font.weight.bold};
   font-size: 30px;

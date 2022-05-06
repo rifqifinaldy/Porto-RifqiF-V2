@@ -17,10 +17,10 @@ const MyApp = ({ Component, pageProps, router }: Props) => {
   // adjust accordingly if you disabled a layout rendering option
   const getLayout = Component.getLayout ?? ((page) => page);
   const Layout = Component.layout ?? Fragment;
-  const[isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
   };
 
   const pageTransition = {
@@ -29,11 +29,14 @@ const MyApp = ({ Component, pageProps, router }: Props) => {
     },
     animate: {
       opacity: 1,
-      transition: { duration: 0.85 },
+      transition: {
+        duration: 0.85,
+      },
     },
     exit: {
-      opacity : 0,
+      opacity: 0,
       filter: `invert()`,
+      when: "afterChildren",
     },
   };
 
@@ -45,9 +48,9 @@ const MyApp = ({ Component, pageProps, router }: Props) => {
           <meta name="description" content="Rifqi F Portofolio WebApp" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <Navbar open={isOpen} toggle={toggle}/>
-        {isOpen && <Mobile open={isOpen} toggle={toggle}/>} 
-        <AnimatePresence>
+        <Navbar open={isOpen} toggle={toggle} />
+        {isOpen && <Mobile open={isOpen} toggle={toggle} />}
+        <AnimatePresence exitBeforeEnter>
           <motion.div
             key={router.route}
             variants={pageTransition}

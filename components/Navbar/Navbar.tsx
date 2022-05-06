@@ -1,6 +1,8 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { motion } from "framer-motion";
+import { GetServerSideProps } from "next";
 import Link from "next/link";
 import React, { FC } from "react";
+import { FloatUp, ZoomRotate } from "../../styles/global.animation";
 import {
   CloseIcon,
   MobileIcon,
@@ -28,7 +30,12 @@ const Navbar: FC<INavbar> = ({ toggle, open }) => {
   return (
     <RFNavbar>
       <NavWrapper>
-        <NavLogo>RF</NavLogo>
+        <NavLogo>
+          <motion.div variants={ZoomRotate} whileHover="hover">
+            RF
+          </motion.div>
+        </NavLogo>
+
         <NavMenu>
           {open ? (
             <CloseIcon onClick={toggle} />

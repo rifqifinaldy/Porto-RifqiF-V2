@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { BlinkingText, SlideUpText } from "../components/Text/text.animation";
 import { Button } from "../components/Button/Button";
 import { Container, Grid } from "../components/Layouts/Layouts";
-import { BounceUp, SlideDown, SlideUp } from "../styles/global.animation";
+import { FloatUp, BounceDown, SlideUp } from "../styles/global.animation";
 import {
   Avatar,
   AvatarImg,
@@ -35,7 +35,7 @@ const Home: NextPage = () => {
           </ReactText>
           <ProfileBox>
             <Avatar
-              variants={BounceUp}
+              variants={FloatUp}
               transition={{
                 duration: 2,
                 repeat: Infinity,
@@ -60,7 +60,7 @@ const Home: NextPage = () => {
               <SlideUpText>I'm Rifqi Finaldy</SlideUpText>
             </ProfileName>
             <ProfileRole variants={SlideUp}>Frontend Developer</ProfileRole>
-            <motion.div variants={SlideDown}>
+            <motion.div variants={BounceDown}>
               <Link href="/about">
                 <a>
                   <Button mt="l" color="purple">
