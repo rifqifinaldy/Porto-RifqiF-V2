@@ -13,7 +13,7 @@ export const menu: IMenu[] = [
     title: "About",
   },
   {
-    target: "/projects",
-    title: "Projects",
+    target: "/portfolio",
+    title: "Portfolio",
   },
 ];

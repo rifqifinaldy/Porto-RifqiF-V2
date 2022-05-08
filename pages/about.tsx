@@ -17,6 +17,7 @@ import {
   SliderTitle,
   SliderWrapper,
   SkillBox,
+  AboutSection,
 } from "../styles/about.style";
 import {
   BounceDown,
@@ -38,7 +39,7 @@ const skill = [
 const about = () => {
   const [next, setNext] = useState<boolean>(true);
   setTimeout(() => {
-    setNext(!next)
+    setNext(!next);
   }, 8000);
 
   const SliderMotion = {
@@ -49,106 +50,111 @@ const about = () => {
       opacity: 1,
       display: "block",
       x: 0,
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
     },
     hide: {
       opacity: 0,
       display: "none",
-      x: "100%",
+      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
     },
   };
 
   return (
-    <Container>
-      <PageTitle title="About" subtitle="My Profile" />
-      <Grid>
-        <ImageWrapper>
-          <ImageBox variants={SlideRight}>
-            <ImageFrame>
-              <AboutImage
-                layout="responsive"
-                src="/me2.png"
-                alt="Rifqi Finaldy"
-                objectFit="cover"
-                width={64}
-                height={64}
-                priority
-              />
-            </ImageFrame>
-          </ImageBox>
-        </ImageWrapper>
-        <InformationWrapper>
-
-          <InformationText variants={SlideLeft}>
-            <InformationMain>Hello ! Im Rifqi Finaldy</InformationMain>, Im
-            creative a Frontend Developer with over 1+ years experience in
-            Frontend Development. Also experienced in developing various Web App
-            with different Bussiness Logic.
-          </InformationText>
-          <InformationText variants={SlideLeft}>
-            You can download my CV down below for more detail about me or click
-            here if you wish to review my Project's
-          </InformationText>
-          <motion.div variants={BounceDown}>
-            <Button color="purple">Download CV</Button>
-          </motion.div>
-
-          <SliderWrapper variants={SlideRight}>
-            <AnimatePresence>
-              <motion.section
-                key="1"
-                variants={SliderMotion}
-                animate={next ? "show" : "hide"}
-              >
-                <SliderTitle>Social Media</SliderTitle>
-                <Link href="https://github.com/rifqifinaldy" passHref={true}>
-                  <SocialMediaIcon
-                    target="_blank"
-                    variants={ZoomRotate}
-                    whileHover="hover"
-                  >
-                    <AiFillGithub />
-                  </SocialMediaIcon>
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/rifqi-finaldy-705a541b7"
-                  passHref={true}
+    <AboutSection>
+      <Container>
+        <PageTitle title="About" subtitle="My Profile" />
+        <Grid>
+          <ImageWrapper>
+            <ImageBox variants={SlideRight}>
+              <ImageFrame>
+                <AboutImage
+                  layout="responsive"
+                  src="/me2.png"
+                  alt="Rifqi Finaldy"
+                  objectFit="cover"
+                  width={64}
+                  height={64}
+                  priority
+                />
+              </ImageFrame>
+            </ImageBox>
+          </ImageWrapper>
+          <InformationWrapper>
+            <InformationText variants={SlideLeft}>
+              <InformationMain>Greeting I'm, Rifqi Finaldy</InformationMain>,
+              you can also call me Javascript Enthusiast, React Addict,
+              Experienced Frontend Developer. Also Experienced in driving
+              various Web App with different Bussiness Logic. Im easily inspired
+              and prefer to keep learning and continue challenging myself as
+              "Skill can be Taught and Personality is Inherent".
+            </InformationText>
+            <InformationText variants={SlideLeft}>
+              Read more about my personality, education, skills, experience in
+              the PDF (CV) attached below.
+            </InformationText>
+            <motion.div variants={BounceDown}>
+              <a href="/cv_rifqifinaldy.pdf" target="_blank">
+                <Button color="purple">Download CV</Button>
+              </a>
+            </motion.div>
+            <SliderWrapper variants={SlideRight}>
+              <AnimatePresence>
+                <motion.section
+                  key="1"
+                  variants={SliderMotion}
+                  animate={next ? "show" : "hide"}
                 >
-                  <SocialMediaIcon
-                    target="_blank"
-                    variants={ZoomRotate}
-                    whileHover="hover"
+                  <SliderTitle>Contact Me</SliderTitle>
+                  <Link href="https://github.com/rifqifinaldy" passHref={true}>
+                    <SocialMediaIcon
+                      target="_blank"
+                      variants={ZoomRotate}
+                      whileHover="hover"
+                    >
+                      <AiFillGithub />
+                    </SocialMediaIcon>
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/rifqi-finaldy-705a541b7"
+                    passHref={true}
                   >
-                    <AiFillLinkedin />
-                  </SocialMediaIcon>
-                </Link>
-                <Link
-                  href="https://www.instagram.com/rifqifinaldy"
-                  passHref={true}
+                    <SocialMediaIcon
+                      target="_blank"
+                      variants={ZoomRotate}
+                      whileHover="hover"
+                    >
+                      <AiFillLinkedin />
+                    </SocialMediaIcon>
+                  </Link>
+                  <Link
+                    href="https://www.instagram.com/rifqifinaldy"
+                    passHref={true}
+                  >
+                    <SocialMediaIcon
+                      target="_blank"
+                      variants={ZoomRotate}
+                      whileHover="hover"
+                    >
+                      <AiFillInstagram />
+                    </SocialMediaIcon>
+                  </Link>
+                </motion.section>
+                <motion.section
+                  key="2"
+                  variants={SliderMotion}
+                  animate={next ? "hide" : "show"}
                 >
-                  <SocialMediaIcon
-                    target="_blank"
-                    variants={ZoomRotate}
-                    whileHover="hover"
-                  >
-                    <AiFillInstagram />
-                  </SocialMediaIcon>
-                </Link>
-              </motion.section>
-              <motion.section
-                key="2"
-                variants={SliderMotion}
-                animate={next ? "hide" : "show"}
-              >
-                <SliderTitle>Primary Skill</SliderTitle>
-                {skill.map((skill, i) => {
-                  return <SkillBox key={i}>{skill.name}</SkillBox>;
-                })}
-              </motion.section>
-            </AnimatePresence>
-          </SliderWrapper>
-        </InformationWrapper>
-      </Grid>
-    </Container>
+                  <SliderTitle>Primary Skill</SliderTitle>
+                  {skill.map((skill, i) => {
+                    return <SkillBox key={i}>{skill.name}</SkillBox>;
+                  })}
+                </motion.section>
+              </AnimatePresence>
+            </SliderWrapper>
+          </InformationWrapper>
+        </Grid>
+      </Container>
+    </AboutSection>
   );
 };
 
