@@ -20,12 +20,12 @@ body {
 }
 
 body {
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
 }
 
-@media(max-width: 768px) {
+/* @media(max-width: 768px) {
   body {
     overflow-y: auto;
   }
-}
+} */

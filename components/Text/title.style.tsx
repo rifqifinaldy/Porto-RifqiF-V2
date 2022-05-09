@@ -5,7 +5,7 @@ export const TitleWrapper = styled.div`
   text-align: center;
   max-width: 100%;
   padding : 0 15px;
-  margin-bottom : 60px;
+  margin-bottom : 30px;
 `;
 
 export const Title = styled(motion.h2)`
@@ -23,3 +23,4 @@ export const Subtitle = styled.h4`
   opacity : ${({theme}) => theme.opacity.medium};
   margin: 0;
 `;
+
