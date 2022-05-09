@@ -1,53 +1,49 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card/Card";
-import { Container, Grid } from "../components/Layouts/Layouts";
-import PageTitle from "../components/Text/Title";
+import Card from "../../components/Card/Card";
+import { Container } from "../../components/Layouts/Layouts";
+import PageTitle from "../../components/Text/Title";
 import {
   FilterItem,
   PortfolioFilter,
   PortfolioItem,
   PortfolioSection,
   PortfolioWrapper,
-} from "../styles/portfolio.style";
-import { AnimatePresence, motion } from "framer-motion";
+} from "../../styles/portfolio.style";
+import { AnimatePresence } from "framer-motion";
+import { IPortfolioFields } from "../../src/@types/contentful";
+import { GetStaticProps, NextPage } from "next";
+import ContentService from "../../src/util/content-service";
+import Link from "next/link";
 
-const portfolio = () => {
-  const portfolios = [
-    {
-      id: 0,
-      title: "Projects 1",
-      tag: ["Tag 1", "Tag 2"],
-      filter: "projects",
+interface Props {
+  portfolio: IPortfolioFields[];
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const portfolio = (
+    await ContentService.instance.getEntriesByType<IPortfolioFields>(
+      "portfolio"
+    )
+  ).map((entry) => entry.fields);
+
+  return {
+    props: {
+      portfolio,
     },
-    {
-      id: 1,
-      title: "Projects 2",
-      tag: ["Tag 3", "Tag 4"],
-      filter: "mini",
-    },
-    {
-      id: 3,
-      title: "Projects 3",
-      tag: ["Tag 3", "Tag 4"],
-      filter: "mini",
-    },
-    {
-      id: 4,
-      title: "Projects 4",
-      tag: ["Tag 3", "Tag 4"],
-      filter: "projects",
-    },
-  ];
-  const [data, setData] = useState(portfolios);
-  const [filtered, setFiltered] = useState(portfolios);
+  };
+};
+
+const portfolio: NextPage<Props> = ({ portfolio }) => {
+  console.log(portfolio);
+  const [filtered, setFiltered] = useState(portfolio);
   const [active, setActive] = useState("all");
 
   useEffect(() => {
     if (active === "all") {
-      setFiltered(portfolios);
+      setFiltered(portfolio);
       return;
     }
-    const filtered = portfolios.filter((data) => data.filter.includes(active));
+    const filtered = portfolio.filter((data) => data.type.includes(active));
     setFiltered(filtered);
   }, [active]);
 
@@ -78,10 +74,16 @@ const portfolio = () => {
         <PortfolioWrapper layout>
           <AnimatePresence>
             {filtered.map((data, i) => {
-              let tag = data.tag.join(", ");
+              let tag = data.tags.join(", ");
               return (
                 <PortfolioItem key={i}>
-                  <Card title={data.title} subtitle={tag} />
+                    <Card
+                      title={data.name}
+                      subtitle={tag}
+                      image={"https:" + data.thumbnail.fields.file.url}
+                      slug={`/portfolio/${data.slug}`}
+                      url={data.url}
+                    />
                 </PortfolioItem>
               );
             })}

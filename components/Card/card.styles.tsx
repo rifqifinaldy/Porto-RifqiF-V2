@@ -1,23 +1,27 @@
 import Image from "next/image";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export const RFCard = styled(motion.div)`
-  padding: 0 0 15px 0;
-  border-radius: 5px;
   cursor: pointer;
+  position: relative;
+  padding: 5px;
+  border-radius: 2px;
   width: 100%;
-  box-shadow: 0.5px 2px 1px #242424;
+  box-shadow: 0.2px 0.2px 2px 0.5px ${({theme}) => theme.colors.purple};
 `;
 
-export const CardImageWrapper = styled.div`
+export const CardImageWrapper = styled(motion.div)`
+  cursor: pointer;
+  position: relative;
   border-radius: 20px;
   width: 100%;
+  height: 150px;
 `;
 
 export const CardImage = styled(Image)`
   width: 100%;
-  object-fit: cover;
   vertical-align: middle;
   border-radius: 5px;
 `;
@@ -34,4 +38,26 @@ export const CardSubtitle = styled.p`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-weight: ${({ theme }) => theme.font.weight.light};
   font-size: 14px;
+`;
+
+export const CardInformation = styled(motion.div)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+
+export const CardLink = styled(motion.a)`
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.5em;
+  font-size: 18px;
+  border: 1px solid ${({ theme }) => theme.colors.orange};
+  color: ${({ theme }) => theme.colors.orange};
+  cursor: pointer;
+  margin-left: 1em;
+  &:nth-child(2) {
+    color: ${({ theme }) => theme.colors.purple};
+    border: 1px solid ${({ theme }) => theme.colors.purple};
+  }
 `;
