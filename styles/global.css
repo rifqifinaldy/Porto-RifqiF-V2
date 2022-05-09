@@ -24,6 +24,19 @@ body {
   overflow-x: hidden;
 }
 
+.loader {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.loader > div {
+  height: 10px;
+  width: 10px;
+  background: white;
+
+  border-radius: 50%;
+}
+
 /* @media(max-width: 768px) {
   body {
     overflow-y: auto;

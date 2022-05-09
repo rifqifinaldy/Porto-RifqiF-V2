@@ -6,18 +6,19 @@ import Link from "next/link";
 export const RFCard = styled(motion.div)`
   cursor: pointer;
   position: relative;
-  padding: 5px;
-  border-radius: 2px;
+  padding: 0 0 15px 0;
+  border-radius: 20px;
+  height: 360px
   width: 100%;
-  box-shadow: 0.2px 0.2px 2px 0.5px ${({theme}) => theme.colors.purple};
+  box-shadow: 0.2px 0.2px 5px 0.5px ${({theme}) => theme.colors.purple};
 `;
 
 export const CardImageWrapper = styled(motion.div)`
   cursor: pointer;
   position: relative;
-  border-radius: 20px;
   width: 100%;
   height: 150px;
+  margin-bottom: 1em;
 `;
 
 export const CardImage = styled(Image)`

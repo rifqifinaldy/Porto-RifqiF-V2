@@ -14,7 +14,7 @@ export interface IPortfolioFields {
   thumbnail: Asset;
 
   /** Images */
-  images?: Asset[] | undefined;
+  images: Asset[];
 
   /** Type */
   type: "mini" | "projects";

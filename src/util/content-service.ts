@@ -1,5 +1,6 @@
 import { createClient } from "contentful";
 import { config } from "dotenv";
+import { IPortfolioFields } from "../@types/contentful";
 
 /*
  * We tell TypeScript that those environment variables are always defined.
@@ -33,5 +34,14 @@ export default class ContentService {
         content_type: type,
       })
     ).items;
+  }
+
+  async getPortfolioBySlug(slug: string) {
+    return (
+      await this.client.getEntries<IPortfolioFields>({
+        content_type: "portfolio",
+        "fields.slug": slug,
+      })
+    ).items[0];
   }
 }
