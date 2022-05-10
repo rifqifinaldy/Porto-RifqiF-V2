@@ -23,10 +23,13 @@ export interface IPortfolioFields {
   tags: string[];
 
   /** Url */
-  url: string;
+  url?: string | undefined;
 
   /** Repository */
   repository?: string | undefined;
+
+  /** Description */
+  description?: Document | undefined;
 }
 
 export interface IPortfolio extends Entry<IPortfolioFields> {

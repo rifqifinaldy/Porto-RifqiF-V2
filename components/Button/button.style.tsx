@@ -18,18 +18,24 @@ export const RFButton = styled(motion.button)<IButton>`
   display: inline-block;
   margin-top: ${(props) =>
     props.mt ? props.theme.margin[props.mt] : props.theme.margin.s};
+  margin-right: ${(props) =>
+    props.mr ? props.theme.margin[props.mr] : props.theme.margin.s};
+  margin-left: ${(props) =>
+    props.ml ? props.theme.margin[props.ml] : props.theme.margin.s};
+  margin-bottom: ${(props) =>
+    props.mb ? props.theme.margin[props.mb] : props.theme.margin.s};
 `;
 
 export const MotionButton = {
-  hover : {
+  hover: {
     scale: 1.1,
-    boxShadow : "0px 0px 8px #e2e2e2",
+    boxShadow: "0px 0px 8px #e2e2e2",
     transition: {
-      duration : 0.2,
-    }
+      duration: 0.2,
+    },
   },
-  tap : {
-    scale : 0.9,
-    boxShadow : "0px 0px 5px #e2e2e2",
-  }
-}
+  tap: {
+    scale: 0.9,
+    boxShadow: "0px 0px 5px #e2e2e2",
+  },
+};

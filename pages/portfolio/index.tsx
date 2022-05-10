@@ -13,7 +13,6 @@ import { AnimatePresence } from "framer-motion";
 import { IPortfolioFields } from "../../src/@types/contentful";
 import { GetStaticProps, NextPage } from "next";
 import ContentService from "../../src/util/content-service";
-import Link from "next/link";
 
 interface Props {
   portfolio: IPortfolioFields[];
@@ -65,8 +64,8 @@ const portfolio: NextPage<Props> = ({ portfolio }) => {
             Projects
           </FilterItem>
           <FilterItem
-            isSelected={active === "mini" ? true : false}
-            onClick={() => setActive("mini")}
+            isSelected={active === "mini app" ? true : false}
+            onClick={() => setActive("mini app")}
           >
             Mini Projects
           </FilterItem>

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
 import styled from "styled-components";
 import { theme } from "./theme.style";
 
@@ -47,9 +48,49 @@ export const TextWrapper = styled.div`
   max-width: 40%;
   padding: 0 15px;
   height: 360px;
+  & > h2 {
+    font-size: 18px;
+    opacity: 0.65;
+    color: ${({ theme }) => theme.colors.orange};
+  }
+  & > h4 {
+    font-weight: ${({ theme }) => theme.font.weight.normal};
+    color: ${({ theme }) => theme.colors.orange};
+  }
+  & h6 {
+    & span {
+      font-weight: ${({ theme }) => theme.font.weight.bold};
+      &:nth-child(2) {
+        color: ${({ theme }) => theme.colors.red};
+      }
+    }
+    & a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.blue};
+    }
+    font-weight: ${({ theme }) => theme.font.weight.normal};
+    margin-top: 1em;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.text.primary};
+  }
+`;
+
+export const Description = styled.div`
+  margin-top: 1em;
+  max-height: 280px;
+  overflow: auto;
+  & p {
+    margin-top: 0.5em;
+    font-size: 16px;
+    color: ${({ theme }) => theme.colors.text.secondary};
+  }
+  & a {
+    color: ${({ theme }) => theme.colors.blue};
+  }
 `;
 
 export const StackWrapper = styled.div`
+  position: relative;
   flex: 0 0 60%;
   max-width: 60%;
   padding: 0 15px;
@@ -66,16 +107,41 @@ export const StackWrapper = styled.div`
 export const CarouselBox = styled.main`
   position: relative;
   height: 360px;
+  border-radius: 5px;
   place-items: center;
   box-shadow: inset 0px 0px 15px black;
   overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.purple};
 `;
 
-export const CarouselNavigation = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+export const CarouselNavigation = styled.div``;
+
+export const LeftArrow = styled(AiFillCaretLeft)`
+  margin-left: 0.4em;
+  color: ${({ theme }) => theme.colors.orange};
+  font-size: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transition: 0.45s ease;
+  &:hover {
+    opacity: 0.5;
+  }
+`;
+
+export const RightArrow = styled(AiFillCaretRight)`
+  margin-right: 0.4em;
+  color: ${({ theme }) => theme.colors.orange};
+  font-size: 32px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transition: 0.45s ease;
+  &:hover {
+    opacity: 0.5;
+  }
 `;
 
 export const CarouselImages = styled(motion.img)`

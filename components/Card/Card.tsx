@@ -15,7 +15,7 @@ interface ICard {
   subtitle: string;
   image: string;
   slug: string;
-  url: string;
+  url?: string;
 }
 
 const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
@@ -52,7 +52,7 @@ const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
     },
     hover: {
       opacity: 0.3,
-      scale: 0.8
+      scale: 0.8,
     },
   };
 
@@ -78,9 +78,11 @@ const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
         <Link href={slug} passHref={true}>
           <CardLink>Preview</CardLink>
         </Link>
-        <Link href={url} passHref={true}>
-          <CardLink target="_blank">Visit</CardLink>
-        </Link>
+        {url && (
+          <Link href={url} passHref={true}>
+            <CardLink target="_blank">Visit</CardLink>
+          </Link>
+        )}
       </CardInformation>
       <CardTitle>{title}</CardTitle>
       <CardSubtitle>{subtitle}</CardSubtitle>

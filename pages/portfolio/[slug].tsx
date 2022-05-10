@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import React, { useState } from "react";
 import { Container, Grid } from "../../components/Layouts/Layouts";
 import PageTitle from "../../components/Text/Title";
@@ -8,11 +9,16 @@ import {
   CarouselBox,
   CarouselImages,
   CarouselNavigation,
+  Description,
+  LeftArrow,
+  RightArrow,
   StackWrapper,
   TextWrapper,
 } from "../../styles/portfolio.style";
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useEffect } from "react";
+import { Button } from "../../components/Button/Button";
+import Link from "next/link";
 
 interface Props {
   portfolio: IPortfolioFields;
@@ -51,58 +57,43 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-const loaderVariants: Variants = {
+const variants: Variants = {
   initial: {
     opacity: 0,
   },
-
-  animate: (delay: number) => ({
-    y: [0, 10, -10],
+  animate: {
+    x: 0,
     opacity: 1,
-    transition: {
-      duration: 0.5,
-      repeat: Infinity,
-      repeatType: "reverse",
-      delay: delay * 0.1,
-    },
-  }),
+  },
   exit: {
     opacity: 0,
   },
 };
 
-const variants: Variants = {
-  left: {
-    x: "-100%",
-    opacity: 0,
-  },
-  center: {
-    x: 0,
-    opacity: 1,
-  },
-  right: {
-    x: "100%",
-    opacity: 0,
-  },
-};
-const swipeConfidenceThreshold = 10000;
-const swipePower = (offset: number, velocity: number) => {
-  return Math.abs(offset) * velocity;
-};
-
 const PortfolioDetail: NextPage<Props> = ({
-  portfolio: { name, images, url, repository, type, tags, thumbnail },
+  portfolio: {
+    name,
+    images,
+    url,
+    repository,
+    type,
+    tags,
+    thumbnail,
+    description,
+  },
 }) => {
-  console.log("DETAILS", images);
+  console.log("DETAILS", description);
   const [isLoading, setIsLoading] = useState(true);
   const [source, setSource] = useState("");
   const [index, setIndex] = useState(0);
 
   function next() {
+    console.log("NEXT");
     setIndex((prev) => (prev + 1) % images.length);
   }
 
   function previous() {
+    console.log("PREVIOUS");
     setIndex((prev) => (prev !== 0 ? prev - 1 : images.length - 1));
   }
 
@@ -133,9 +124,15 @@ const PortfolioDetail: NextPage<Props> = ({
 
   return (
     <Container>
-      <PageTitle title={name} subtitle="My Works" />
+      <PageTitle title={type} subtitle="Preview" />
       <Grid>
-        <TextWrapper></TextWrapper>
+        <TextWrapper>
+          <h1>{name}</h1>
+          <h2> {tags.join(", ")} </h2>
+          <Description>
+            {description ? documentToReactComponents(description) : null}
+          </Description>
+        </TextWrapper>
         <StackWrapper>
           <CarouselBox>
             <AnimatePresence>
@@ -147,30 +144,33 @@ const PortfolioDetail: NextPage<Props> = ({
                   key={index}
                   src={source}
                   variants={variants}
-                  initial="left"
-                  animate="center"
-                  exit="right"
-                  drag="x"
-                  dragConstraints={{ left: 0, right: 0 }}
-                  dragElastic={1}
-                  onDragEnd={(e, { offset, velocity }) => {
-                    const swipe = swipePower(offset.x, velocity.x);
-
-                    if (swipe < -swipeConfidenceThreshold) {
-                      previous();
-                    } else if (swipe > swipeConfidenceThreshold) {
-                      next();
-                    }
-                  }}
+                  initial="initial"
+                  animate="animate"
+                  exit="exit"
                 />
               )}
             </AnimatePresence>
           </CarouselBox>
           <CarouselNavigation>
-            <button onClick={previous}>Previous</button>
-            <button onClick={next}>Next</button>
+            <LeftArrow onClick={previous} />
+            <RightArrow onClick={next} />
           </CarouselNavigation>
         </StackWrapper>
+        {url && (
+          <Link href={url}>
+            <a target="_blank">
+              <Button color="blue">Visit This Website</Button>
+            </a>
+          </Link>
+        )}
+
+        {repository && (
+          <Link href={repository}>
+            <a target="_blank">
+            <Button color="orange">View Sources</Button>
+            </a>
+          </Link>
+        )}
       </Grid>
     </Container>
   );
