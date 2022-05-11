@@ -13,6 +13,7 @@ import { AnimatePresence } from "framer-motion";
 import { IPortfolioFields } from "../../src/@types/contentful";
 import { GetStaticProps, NextPage } from "next";
 import ContentService from "../../src/util/content-service";
+import Link from "next/link";
 
 interface Props {
   portfolio: IPortfolioFields[];
@@ -75,15 +76,15 @@ const portfolio: NextPage<Props> = ({ portfolio }) => {
             {filtered.map((data, i) => {
               let tag = data.tags.join(", ");
               return (
-                <PortfolioItem key={data.slug}>
+                <Link key={data.slug} href={`/portfolio/${data.slug}`} passHref={true}>
+                  <PortfolioItem>
                     <Card
                       title={data.name}
                       subtitle={tag}
                       image={"https:" + data.thumbnail.fields.file.url}
-                      slug={`/portfolio/${data.slug}`}
-                      url={data.url}
                     />
-                </PortfolioItem>
+                  </PortfolioItem>
+                </Link>
               );
             })}
           </AnimatePresence>

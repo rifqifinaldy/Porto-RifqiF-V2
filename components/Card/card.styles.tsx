@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const RFCard = styled(motion.div)`
-  
+  cursor: pointer;
   position: relative;
   padding: 0;
   border-radius: 5px 5px 0 0;
@@ -14,7 +14,6 @@ export const RFCard = styled(motion.div)`
 `;
 
 export const CardImageWrapper = styled(motion.div)`
-  
   position: relative;
   width: 100%;
   height: 100%;
@@ -59,9 +58,9 @@ export const CardTitle = styled.h4`
 `;
 
 export const CardSubtitle = styled(motion.p)`
-  color: ${({ theme }) => theme.colors.text.secondary};
-  font-weight: ${({ theme }) => theme.font.weight.light};
-  font-size: 14px;
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-weight: ${({ theme }) => theme.font.weight.normal};
+  font-size: 18px;
 `;
 
 export const CardInformation = styled(motion.div)`
