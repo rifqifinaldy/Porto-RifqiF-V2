@@ -33,7 +33,7 @@ export const FilterItem = styled("span")<{ isSelected: boolean }>`
 
 export const PortfolioWrapper = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-column-gap: 1rem;
   grid-row-gap: 2rem;
 `;
@@ -73,6 +73,13 @@ export const TextWrapper = styled.div`
     font-size: 16px;
     color: ${({ theme }) => theme.colors.text.primary};
   }
+  @media screen and (max-width: 768px) {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-top: ${({ theme }) => theme.margin.m};
+    padding: 1em;
+    height: auto;
+  }
 `;
 
 export const Description = styled.div`
@@ -100,7 +107,8 @@ export const StackWrapper = styled.div`
     flex: 0 0 100%;
     max-width: 100%;
     margin-top: ${({ theme }) => theme.margin.m};
-    padding: 0;
+    padding: 1em;
+    height: auto;
   }
 `;
 
@@ -112,6 +120,12 @@ export const CarouselBox = styled.main`
   box-shadow: inset 0px 0px 15px black;
   overflow: hidden;
   border: 1px solid ${({ theme }) => theme.colors.purple};
+  @media screen and (max-width: 768px) {
+    flex: 0 0 100%;
+    height: auto;
+    margin-bottom: ${({ theme }) => theme.margin.m};
+    padding: 0;
+  }
 `;
 
 export const CarouselNavigation = styled.div``;

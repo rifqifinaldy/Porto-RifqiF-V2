@@ -4,38 +4,61 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const RFCard = styled(motion.div)`
-  cursor: pointer;
+  
   position: relative;
-  padding: 0 0 15px 0;
-  border-radius: 20px;
-  height: 360px
+  padding: 0;
+  border-radius: 5px 5px 0 0;
+  height: 240px;
   width: 100%;
-  box-shadow: 0.2px 0.2px 5px 0.5px ${({theme}) => theme.colors.purple};
+  box-shadow: 6px 6px 0 rgb(100 100 100 / 15%);
 `;
 
 export const CardImageWrapper = styled(motion.div)`
-  cursor: pointer;
+  
   position: relative;
   width: 100%;
-  height: 150px;
-  margin-bottom: 1em;
+  height: 100%;
 `;
 
 export const CardImage = styled(Image)`
   width: 100%;
-  vertical-align: middle;
-  border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+`;
+
+export const CardTitleBox = styled.div`
+  display: block;
+  position: absolute;
+  height: 24px;
+  border-radius: 5px 5px 0 0;
+  background-color: ${({ theme }) => theme.colors.blue};
+  width: 100%;
+  color: #131313;
+  z-index: 10;
+  & > i {
+    height: 12px;
+    width: 12px;
+    display: inline-block;
+    background-color: ${({ theme }) => theme.colors.red};
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    &:nth-child(2) {
+      right: 30px;
+      background-color: ${({ theme }) => theme.colors.background};
+    }
+  }
 `;
 
 export const CardTitle = styled.h4`
-  text-align: center;
-  color: ${({ theme }) => theme.colors.text.primary};
-  font-weight: ${({ theme }) => theme.font.weight.normal};
-  font-size: 16px;
+  text-align: left;
+  margin-left: 0.5em;
+  color: ${({ theme }) => theme.colors.text.secondary};
+  font-weight: ${({ theme }) => theme.font.weight.bold};
+  font-size: 14px;
 `;
 
-export const CardSubtitle = styled.p`
-  text-align: center;
+export const CardSubtitle = styled(motion.p)`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-weight: ${({ theme }) => theme.font.weight.light};
   font-size: 14px;
@@ -52,12 +75,12 @@ export const CardLink = styled(motion.a)`
   text-decoration: none;
   border-radius: 5px;
   padding: 0.5em;
-  font-size: 18px;
+  font-size: 14px;
   border: 1px solid ${({ theme }) => theme.colors.orange};
   color: ${({ theme }) => theme.colors.orange};
   cursor: pointer;
-  margin-left: 1em;
   &:nth-child(2) {
+    margin-left: 0.5em;
     color: ${({ theme }) => theme.colors.purple};
     border: 1px solid ${({ theme }) => theme.colors.purple};
   }

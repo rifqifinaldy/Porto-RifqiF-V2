@@ -26,7 +26,7 @@ export const RFButton = styled(motion.button)<IButton>`
     props.mb ? props.theme.margin[props.mb] : props.theme.margin.s};
 `;
 
-export const MotionButton = {
+export const ButtonMotion = {
   hover: {
     scale: 1.1,
     boxShadow: "0px 0px 8px #e2e2e2",

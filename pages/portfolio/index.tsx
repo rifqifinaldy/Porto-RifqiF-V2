@@ -70,12 +70,12 @@ const portfolio: NextPage<Props> = ({ portfolio }) => {
             Mini Projects
           </FilterItem>
         </PortfolioFilter>
-        <PortfolioWrapper layout>
+        <PortfolioWrapper layout={true}>
           <AnimatePresence>
             {filtered.map((data, i) => {
               let tag = data.tags.join(", ");
               return (
-                <PortfolioItem key={i}>
+                <PortfolioItem key={data.slug}>
                     <Card
                       title={data.name}
                       subtitle={tag}

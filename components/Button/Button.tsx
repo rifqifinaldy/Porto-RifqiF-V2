@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import { BaseColors, Margin } from "../../types/styled";
-import { MotionButton, RFButton } from "./button.style";
+import { ButtonMotion, RFButton } from "./button.style";
 
 export interface IButton {
   children?: ReactNode;
@@ -23,7 +23,7 @@ export const Button: FC<IButton> = ({
 }) => {
   return (
     <RFButton
-      variants={MotionButton}
+      variants={ButtonMotion}
       whileHover="hover"
       whileTap="tap"
       mt={mt}

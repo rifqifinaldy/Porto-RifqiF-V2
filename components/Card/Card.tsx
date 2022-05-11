@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { FC } from "react";
+import { motion } from "framer-motion";
 import {
   CardImage,
   CardImageWrapper,
@@ -7,8 +8,10 @@ import {
   CardLink,
   CardSubtitle,
   CardTitle,
+  CardTitleBox,
   RFCard,
 } from "./card.styles";
+import { ButtonMotion } from "../Button/button.style";
 
 interface ICard {
   title: string;
@@ -52,7 +55,6 @@ const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
     },
     hover: {
       opacity: 0.3,
-      scale: 0.8,
     },
   };
 
@@ -66,13 +68,14 @@ const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
       transition={{ duration: 0.65 }}
       layout
     >
+      <CardTitleBox>
+        <CardTitle>{title}</CardTitle>
+        <i></i>
+        <i></i>
+      </CardTitleBox>
+
       <CardImageWrapper variants={ImageMotion}>
-        <CardImage
-          src={image}
-          layout="fill"
-          objectFit="cover"
-          priority={true}
-        />
+        <CardImage src={image} layout="fill" objectFit="fill" priority={true} />
       </CardImageWrapper>
       <CardInformation variants={LinkMotion}>
         <Link href={slug} passHref={true}>
@@ -84,8 +87,7 @@ const Card: FC<ICard> = ({ title, subtitle, image, slug, url }) => {
           </Link>
         )}
       </CardInformation>
-      <CardTitle>{title}</CardTitle>
-      <CardSubtitle>{subtitle}</CardSubtitle>
+      <CardSubtitle variants={LinkMotion}>{subtitle}</CardSubtitle>
     </RFCard>
   );
 };
