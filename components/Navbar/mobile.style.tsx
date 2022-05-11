@@ -1,6 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const MobileMenuContainer = styled.div<{ open: boolean }>`
+export const MobileMenuContainer = styled(motion.div)<{ open: boolean }>`
   position: absolute;
   z-index: ${({ open }) => (open ? "998" : "-999")};
   background: ${({ theme }) => theme.colors.background};

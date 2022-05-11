@@ -24,6 +24,9 @@ export const FilterItem = styled("span")<{ isSelected: boolean }>`
   text-transform: capitalize;
   font-size: 16px;
   transition: all 0.3s ease;
+  &:hover {
+    color: ${({theme}) => theme.colors.purple}
+  }
   ${(props) =>
     props.isSelected &&
     `
