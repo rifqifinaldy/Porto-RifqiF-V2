@@ -83,7 +83,7 @@ const About: NextPage = () => {
           </ImageWrapper>
           <InformationWrapper>
             <motion.p variants={FadingUP}>
-              <span>Greeting I'm, Rifqi Finaldy, </span> you can also call me
+              <span>Greeting I&apos;m, Rifqi Finaldy, </span> you can also call me
               Javascript Enthusiast, React Addict, Experienced Frontend
               Developer. Also Experienced in driving various Web App with
               different Bussiness Logic. Im easily inspired and prefer to keep
