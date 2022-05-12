@@ -47,6 +47,7 @@ const MyApp = ({ Component, pageProps, router }: Props) => {
           <title>Porto-RifqiF</title>
           <meta name="description" content="Rifqi F Portofolio WebApp" />
           <link rel="icon" href="/favicon.ico" />
+          
         </Head>
         <Navbar open={isOpen} toggle={toggle} />
         {isOpen && <Mobile open={isOpen} toggle={toggle} />}
