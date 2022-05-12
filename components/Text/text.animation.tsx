@@ -11,7 +11,7 @@ export const SlideUpText = ({ children }: IChildren) => {
     <div style={{ display: "inline-block", overflow: "hidden" }}>
       {words.map((words, i) => {
         return (
-          <motion.div
+          <motion.span
             key={i}
             initial={{ y: "100%" }}
             animate="animate"
@@ -29,7 +29,7 @@ export const SlideUpText = ({ children }: IChildren) => {
             custom={i}
           >
             {words + (i !== words.length - 1 ? "\u00A0" : "")}
-          </motion.div>
+          </motion.span>
         );
       })}
     </div>

@@ -45,18 +45,18 @@ export const InformationWrapper = styled.div`
   max-width: 60%;
   padding: 0 15px;
   height: 360px;
+  & > p {
+    margin-bottom: ${({theme}) => theme.margin.m};
+    & > span {
+      color: ${({theme}) => theme.colors.orange}
+    }
+  }
   @media screen and (max-width: 768px) {
     flex: 0 0 100%;
     max-width: 100%;
     margin-top: ${({ theme }) => theme.margin.m};
     padding: 0;
   }
-`;
-
-export const InformationText = styled(motion.p)`
-  font-size: 16px;
-  line-height: 26px;
-  margin-bottom: ${({ theme }) => theme.margin.m};
 `;
 
 export const InformationMain = styled.span`

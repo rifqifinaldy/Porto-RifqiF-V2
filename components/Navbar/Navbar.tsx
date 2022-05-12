@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { GetServerSideProps } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { FC } from "react";
@@ -44,7 +43,9 @@ const Navbar: FC<INavbar> = ({ toggle, open }) => {
             return (
               <NavItem key={i}>
                 <Link passHref={true} href={menu.target}>
-                  <NavLink isActive={router.pathname === menu.target}>{menu.title}</NavLink>
+                  <NavLink isActive={router.pathname === menu.target}>
+                    {menu.title}
+                  </NavLink>
                 </Link>
               </NavItem>
             );

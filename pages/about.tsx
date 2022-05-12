@@ -5,14 +5,13 @@ import { useState } from "react";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { Button } from "../components/Button/Button";
 import { Container, Grid } from "../components/Layouts/Layouts";
+import { SlideUpText } from "../components/Text/text.animation";
 import PageTitle from "../components/Text/Title";
 import {
   AboutImage,
   ImageBox,
   ImageFrame,
   ImageWrapper,
-  InformationMain,
-  InformationText,
   InformationWrapper,
   SocialMediaIcon,
   SliderTitle,
@@ -22,7 +21,9 @@ import {
 } from "../styles/about.style";
 import {
   BounceDown,
-  SlideLeft,
+  FadingDown,
+  FadingUP,
+  Rotate,
   SlideRight,
   ZoomRotate,
 } from "../styles/global.animation";
@@ -37,7 +38,7 @@ const skill = [
   { id: 7, name: "Redux" },
 ];
 
-const About:NextPage = () => {
+const About: NextPage = () => {
   const [next, setNext] = useState<boolean>(true);
   setTimeout(() => {
     setNext(!next);
@@ -66,7 +67,7 @@ const About:NextPage = () => {
         <PageTitle title="About" subtitle="My Profile" />
         <Grid>
           <ImageWrapper>
-            <ImageBox variants={SlideRight}>
+            <ImageBox variants={Rotate}>
               <ImageFrame>
                 <AboutImage
                   layout="responsive"
@@ -81,24 +82,24 @@ const About:NextPage = () => {
             </ImageBox>
           </ImageWrapper>
           <InformationWrapper>
-            <InformationText variants={SlideLeft}>
-              <InformationMain>Greeting I&apos;m, Rifqi Finaldy</InformationMain>,
-              you can also call me Javascript Enthusiast, React Addict,
-              Experienced Frontend Developer. Also Experienced in driving
-              various Web App with different Bussiness Logic. Im easily inspired
-              and prefer to keep learning and continue challenging myself as
-              &qout;Skill can be Taught and Personality is Inherent&quot;.
-            </InformationText>
-            <InformationText variants={SlideLeft}>
+            <motion.p variants={FadingUP}>
+              <span>Greeting I'm, Rifqi Finaldy, </span> you can also call me
+              Javascript Enthusiast, React Addict, Experienced Frontend
+              Developer. Also Experienced in driving various Web App with
+              different Bussiness Logic. Im easily inspired and prefer to keep
+              learning and continue challenging myself as &quot;Skill can be
+              Taught and Personality is Inherent&quot;.
+            </motion.p>
+            <motion.p variants={FadingDown}>
               Read more about my personality, education, skills, experience in
               the PDF (CV) attached below.
-            </InformationText>
+            </motion.p>
             <motion.div variants={BounceDown}>
               <a href="/cv_rifqifinaldy.pdf" target="_blank">
                 <Button color="purple">Download CV</Button>
               </a>
             </motion.div>
-            <SliderWrapper variants={SlideRight}>
+            <SliderWrapper variants={FadingDown}>
               <AnimatePresence>
                 <motion.section
                   key="1"

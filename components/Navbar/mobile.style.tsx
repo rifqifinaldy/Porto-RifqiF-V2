@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const MobileMenuContainer = styled(motion.div)<{ open: boolean }>`
   position: absolute;
   z-index: ${({ open }) => (open ? "998" : "-999")};
-  background: ${({ theme }) => theme.colors.background};
+  background: rgba(13, 1, 6, 0.95);
   opacity: ${({ open }) => (open ? "1" : "0")};
   top: ${({ open }) => (open ? "0" : "-100")};
   min-width: 100%;
@@ -17,7 +17,7 @@ export const MobileMenuContainer = styled(motion.div)<{ open: boolean }>`
 
 export const MobileMenuWrapper = styled.div`
   display: grid;
-  margin-top: 20%;
+  margin-top: 50%;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(20px);
   text-align: center;
@@ -27,7 +27,7 @@ export const MobileMenuWrapper = styled.div`
   }
 `;
 
-export const MobileMenuItem = styled.div`
+export const MobileMenuItem = styled(motion.div)`
   margin-bottom: 5em;
 `;
 

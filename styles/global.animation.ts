@@ -39,10 +39,54 @@ export const BounceDown = {
   },
 };
 
+export const FadingUP = {
+  initial : {
+    opacity : 0,
+    y: 25
+  },
+  animate : {
+    opacity : 1,
+    y: 1,
+    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85, delay: 0.5, },
+  }
+}
+
+export const FadingDown = {
+  initial : {
+    opacity : 0,
+    y: -25
+  },
+  animate : {
+    opacity : 1,
+    y: 1,
+    transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85, delay: 0.5, },
+  }
+}
+
+export const Rotate = {
+  initial: {
+    opacity: 0,
+    rotateY: 90,
+    scale: 0.5,
+    x: 20,
+  },
+  animate: {
+    opacity: 1,
+    rotateY: 0,
+    scale : 1,
+    x: 0,
+    transition: {
+      delay: 0.5,
+      ease: [0.455, 0.03, 0.515, 0.955],
+      duration: 0.85,
+    },
+  },
+};
+
 export const SlideLeft = {
   initial: {
     opacity: 0,
-    x: "-200%",
+    x: "-100vw",
   },
   animate: {
     opacity: 1,
@@ -58,7 +102,7 @@ export const SlideLeft = {
 export const SlideRight = {
   initial: {
     opacity: 0,
-    x: "200%",
+    x: "100vw",
   },
   animate: {
     opacity: 1,
