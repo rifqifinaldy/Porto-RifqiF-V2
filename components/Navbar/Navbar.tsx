@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { GetServerSideProps } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { ZoomRotate } from "../../styles/global.animation";
 import {
@@ -20,13 +21,8 @@ interface INavbar {
   toggle: () => void;
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  return {
-    props: { message: `Next.js is awesome` }, // will be passed to the page component as props
-  };
-};
-
 const Navbar: FC<INavbar> = ({ toggle, open }) => {
+  const router = useRouter();
   return (
     <RFNavbar>
       <NavWrapper>
@@ -48,7 +44,7 @@ const Navbar: FC<INavbar> = ({ toggle, open }) => {
             return (
               <NavItem key={i}>
                 <Link passHref={true} href={menu.target}>
-                  <NavLink>{menu.title}</NavLink>
+                  <NavLink isActive={router.pathname === menu.target}>{menu.title}</NavLink>
                 </Link>
               </NavItem>
             );

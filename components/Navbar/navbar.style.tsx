@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { theme } from "../../styles/theme.style";
 
 export const RFNavbar = styled.nav`
   background-color: rgba(34, 34, 34, 0.1);
@@ -65,8 +66,18 @@ export const NavItem = styled.div`
   }
 `;
 
-export const NavLink = styled.a`
+export const NavLink = styled.a<{ isActive: boolean }>`
   text-decoration: none;
   color: ${({ theme }) => theme.colors.text.primary};
+  opacity: 0.85;
   cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+  ${(props) =>
+    props.isActive &&
+    `
+  color: ${theme.colors.orange};
+  opacity: 1;
+  `}
 `;

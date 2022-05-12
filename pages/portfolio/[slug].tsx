@@ -82,7 +82,7 @@ const PortfolioDetail: NextPage<Props> = ({
     description,
   },
 }) => {
-  console.log("DETAILS", description);
+  
   const [isLoading, setIsLoading] = useState(true);
   const [source, setSource] = useState("");
   const [index, setIndex] = useState(0);
