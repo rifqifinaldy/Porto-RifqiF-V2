@@ -38,6 +38,7 @@ export const getStaticProps: GetStaticProps<Props, { slug: string }> = async (
     props: {
       portfolio: portfolio.fields,
     },
+    revalidate: 1,
   };
 };
 
