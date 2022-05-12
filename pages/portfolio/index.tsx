@@ -34,7 +34,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 };
 
 const portfolio: NextPage<Props> = ({ portfolio }) => {
-  console.log(portfolio);
   const [filtered, setFiltered] = useState(portfolio);
   const [active, setActive] = useState("all");
 
