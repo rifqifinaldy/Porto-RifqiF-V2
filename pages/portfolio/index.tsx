@@ -33,7 +33,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-const portfolio: NextPage<Props> = ({ portfolio }) => {
+const Portfolio: NextPage<Props> = ({ portfolio }) => {
   const [filtered, setFiltered] = useState(portfolio);
   const [active, setActive] = useState("all");
 
@@ -93,4 +93,4 @@ const portfolio: NextPage<Props> = ({ portfolio }) => {
   );
 };
 
-export default portfolio;
+export default Portfolio;

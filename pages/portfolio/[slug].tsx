@@ -78,7 +78,6 @@ const PortfolioDetail: NextPage<Props> = ({
     repository,
     type,
     tags,
-    thumbnail,
     description,
   },
 }) => {
@@ -120,7 +119,7 @@ const PortfolioDetail: NextPage<Props> = ({
 
   useEffect(() => {
     loadImage(images[index].fields.file.url).then((img) => setSource(img.src));
-  }, [index]);
+  }, [index, images]);
 
   return (
     <Container>

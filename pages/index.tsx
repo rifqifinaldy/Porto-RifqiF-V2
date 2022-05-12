@@ -57,7 +57,7 @@ const Home: NextPage = () => {
           <ProfileBox>
             <Hello>Salute</Hello>
             <ProfileName>
-              <SlideUpText>I'm Rifqi Finaldy</SlideUpText>
+              <SlideUpText>I&apos;m Rifqi Finaldy</SlideUpText>
             </ProfileName>
             <ProfileRole variants={SlideUp}>Frontend Developer</ProfileRole>
             <motion.div variants={BounceDown}>

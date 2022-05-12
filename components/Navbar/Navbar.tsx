@@ -30,7 +30,7 @@ const Navbar: FC<INavbar> = ({ toggle, open }) => {
   return (
     <RFNavbar>
       <NavWrapper>
-        <Link href="/">
+        <Link passHref={true} href="/">
           <NavLogo>
             <motion.div variants={ZoomRotate} whileHover="hover">
               RF
@@ -47,7 +47,7 @@ const Navbar: FC<INavbar> = ({ toggle, open }) => {
           {menu.map((menu, i) => {
             return (
               <NavItem key={i}>
-                <Link href={menu.target}>
+                <Link passHref={true} href={menu.target}>
                   <NavLink>{menu.title}</NavLink>
                 </Link>
               </NavItem>

@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { NextPage } from "next";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useState } from "react";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { Button } from "../components/Button/Button";
 import { Container, Grid } from "../components/Layouts/Layouts";
@@ -36,7 +37,7 @@ const skill = [
   { id: 7, name: "Redux" },
 ];
 
-const about = () => {
+const About:NextPage = () => {
   const [next, setNext] = useState<boolean>(true);
   setTimeout(() => {
     setNext(!next);
@@ -81,12 +82,12 @@ const about = () => {
           </ImageWrapper>
           <InformationWrapper>
             <InformationText variants={SlideLeft}>
-              <InformationMain>Greeting I'm, Rifqi Finaldy</InformationMain>,
+              <InformationMain>Greeting I&apos;m, Rifqi Finaldy</InformationMain>,
               you can also call me Javascript Enthusiast, React Addict,
               Experienced Frontend Developer. Also Experienced in driving
               various Web App with different Bussiness Logic. Im easily inspired
               and prefer to keep learning and continue challenging myself as
-              "Skill can be Taught and Personality is Inherent".
+              &qout;Skill can be Taught and Personality is Inherent&quot;.
             </InformationText>
             <InformationText variants={SlideLeft}>
               Read more about my personality, education, skills, experience in
@@ -158,4 +159,4 @@ const about = () => {
   );
 };
 
-export default about;
+export default About;
