@@ -20,7 +20,7 @@ const Mobile: FC<IMobile> = ({ open, toggle }) => {
         {menu.map((menu, i) => {
           return (
             <MobileMenuItem key={i}>
-              <Link href={menu.target}>
+              <Link passHref={true} href={menu.target}>
                 <MobileLink onClick={toggle}>{menu.title}</MobileLink>
               </Link>
             </MobileMenuItem>
