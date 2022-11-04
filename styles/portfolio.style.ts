@@ -25,7 +25,7 @@ export const FilterItem = styled("span")<{ isSelected: boolean }>`
   font-size: 16px;
   transition: all 0.3s ease;
   &:hover {
-    color: ${({theme}) => theme.colors.purple}
+    color: ${({ theme }) => theme.colors.purple};
   }
   ${(props) =>
     props.isSelected &&
@@ -44,6 +44,12 @@ export const PortfolioWrapper = styled(motion.div)`
 export const PortfolioItem = styled.div`
   padding: 15px;
   flex-wrap: wrap;
+`;
+
+export const Notes = styled.small`
+  display: block;
+  text-align: center;
+  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const TextWrapper = styled.div`

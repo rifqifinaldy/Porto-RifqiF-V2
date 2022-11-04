@@ -4,6 +4,7 @@ import { Container } from "../../components/Layouts/Layouts";
 import PageTitle from "../../components/Text/Title";
 import {
   FilterItem,
+  Notes,
   PortfolioFilter,
   PortfolioItem,
   PortfolioSection,
@@ -45,12 +46,13 @@ const Portfolio: NextPage<Props> = ({ portfolio }) => {
     }
     const filtered = portfolio.filter((data) => data.type.includes(active));
     setFiltered(filtered);
-  }, [active]);
+  }, [active, portfolio]);
 
   return (
     <PortfolioSection>
       <PageTitle title="Portfolio" subtitle="My Works" />
       <Container>
+        
         <PortfolioFilter>
           <FilterItem
             isSelected={active === "all" ? true : false}
@@ -71,6 +73,7 @@ const Portfolio: NextPage<Props> = ({ portfolio }) => {
             Mini Projects
           </FilterItem>
         </PortfolioFilter>
+        <Notes>Please Note, that i didn&apos;t share all of my works / contributions here as some of them are still on development process or it&apos;s against the app / company privacy</Notes>
         <PortfolioWrapper layout={true}>
           <AnimatePresence>
             {filtered.map((data, i) => {
