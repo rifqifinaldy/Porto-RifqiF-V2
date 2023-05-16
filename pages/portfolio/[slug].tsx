@@ -15,10 +15,11 @@ import {
   StackWrapper,
   TextWrapper,
 } from "../../styles/portfolio.style";
-import { AnimatePresence, motion, Variants } from "framer-motion";
+import { AnimatePresence, Variants } from "framer-motion";
 import { useEffect } from "react";
 import { Button } from "../../components/Button/Button";
 import Link from "next/link";
+import { Spinner } from "../../components/Spinner/spinner.styles";
 
 interface Props {
   portfolio: IPortfolioFields;
@@ -137,7 +138,7 @@ const PortfolioDetail: NextPage<Props> = ({
           <CarouselBox>
             <AnimatePresence>
               {isLoading ? (
-                <h1>Loading</h1>
+                <Spinner />
               ) : (
                 <CarouselImages
                   loading="lazy"
