@@ -45,7 +45,7 @@ const Home: NextPage = () => {
             >
               <AvatarImg
                 layout="responsive"
-                src="/me.png"
+                src="/me-3.png"
                 alt="Rifqi Finaldy"
                 objectFit="cover"
                 width={64}

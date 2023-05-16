@@ -73,7 +73,7 @@ const Portfolio: NextPage<Props> = ({ portfolio }) => {
             Mini Projects
           </FilterItem>
         </PortfolioFilter>
-        <Notes>Please Note, that i didn&apos;t share all of my works / contributions here as some of them are still on development process or it&apos;s against the app / company privacy</Notes>
+        <Notes>Please Note, that i didn&apos;t share some of my works / contributions here as some of them are still on development process or it&apos;s against the app / company privacy</Notes>
         <PortfolioWrapper layout={true}>
           <AnimatePresence>
             {filtered.map((data, i) => {

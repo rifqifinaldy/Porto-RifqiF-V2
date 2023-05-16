@@ -5,7 +5,6 @@ import { useState } from "react";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 import { Button } from "../components/Button/Button";
 import { Container, Grid } from "../components/Layouts/Layouts";
-import { SlideUpText } from "../components/Text/text.animation";
 import PageTitle from "../components/Text/Title";
 import {
   AboutImage,

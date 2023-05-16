@@ -38,6 +38,7 @@ export const AboutImage = styled(Image)`
   border: 10px solid transparent;
   vertical-align: middle;
   border-radius: 5px;
+  filter: grayscale(80%);
 `;
 
 export const InformationWrapper = styled.div`

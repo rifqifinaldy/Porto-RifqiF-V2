@@ -30,6 +30,8 @@ export const AvatarImg = styled(Image)`
   width: 100%;
   border-radius: 50%;
   border: 10px solid transparent;
+
+  filter: grayscale(80%);
   box-shadow: ${({ theme }) => theme.shadow.outer_shadow};
 `;
 
