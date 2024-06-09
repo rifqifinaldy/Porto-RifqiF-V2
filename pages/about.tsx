@@ -116,7 +116,7 @@ const About: NextPage = () => {
                     </SocialMediaIcon>
                   </Link>
                   <Link
-                    href="https://www.linkedin.com/in/rifqi-finaldy-705a541b7"
+                    href="https://www.linkedin.com/in/rifqi-finaldy-frontend-developer/"
                     passHref={true}
                   >
                     <SocialMediaIcon
