@@ -94,7 +94,7 @@ const About: NextPage = () => {
               the PDF (CV) attached below.
             </motion.p>
             <motion.div variants={BounceDown}>
-              <a href="/cv_rifqifinaldy.pdf" target="_blank">
+              <a href="/Rifqi Finaldy - Resume.pdf" target="_blank">
                 <Button color="purple">Download CV</Button>
               </a>
             </motion.div>
@@ -116,7 +116,7 @@ const About: NextPage = () => {
                     </SocialMediaIcon>
                   </Link>
                   <Link
-                    href="https://www.linkedin.com/in/rifqi-finaldy-frontend-developer/"
+                    href="https://www.linkedin.com/in/rifqi-finaldy-frontend/"
                     passHref={true}
                   >
                     <SocialMediaIcon
